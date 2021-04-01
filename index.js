@@ -45,6 +45,15 @@ client.connect(err => {
       })
   })
 
+  //delete single book 
+   // delete data from database
+   app.delete('/delete/:id', (req, res) => {
+    booksCollection.deleteOne({ _id: ObjectId(req.params.id) })
+        .then(result => {
+            res.send(result.deletedCount > 0);
+        })
+})
+
   app.post('/addOrder', (req, res) => {
     const newOrder = req.body;
     orderedBooks.insertOne(newOrder)
