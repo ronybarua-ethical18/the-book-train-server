@@ -77,7 +77,6 @@ client.connect(err => {
   console.log('database connected successfully')
 });
 
-
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
