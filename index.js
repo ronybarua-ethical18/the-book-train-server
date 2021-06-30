@@ -32,7 +32,7 @@ client.connect(err => {
   // read or retrieve data from database 
   app.get('/books', (req, res) => {
     const search = req.query.search
-    booksCollection.find({name: {$regex: search}})
+    booksCollection.find({} ||{ name: {$regex: search}})
       .toArray((error, documents) => {
         res.send(documents);
       })
